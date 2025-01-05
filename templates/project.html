@@ -1,0 +1,46 @@
+{%extends 'base.html' %}
+{% block title %}Project{% endblock %}
+{% load static %}
+{% block hh %}
+<header id="header" class="header">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="text-container">
+                  <h1 class="h1-large">Project's</h1>
+                 
+              </div> <!-- end of text-container -->
+          </div> <!-- end of col -->
+      </div> <!-- end of row -->
+  </div> <!-- end of container -->
+</header> <!-- end of header -->
+<!-- end of header -->
+{% endblock %}
+{% block content %}
+    <div id="projects" class="basic-3 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="h2-heading">Delivered projects</h2>
+                    <p class="p-heading">Listed below are some of the most representative projects I've worked on. They range from basic web design for presentation sites to advanced web development for online shops</p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            {% for obj in objs %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-container">
+                        <div class="image-container">
+                            <a href="/">
+                                <img class="img-fluid" src="{{obj.Pimg.url}}" alt="alternative">
+                            </a>
+                        </div> <!-- end of image-container -->
+                        <p style="text-align: center;"><strong>{{obj.Pname}}:</strong> {{obj.Pdis}}<a class="blue" href="{{obj.plink}}">Details</a></p>
+                    </div> <!-- end of text-container -->
+                 
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            {% endfor %}
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-3 -->
+    <!-- end of projects -->
+    {% endblock content %}

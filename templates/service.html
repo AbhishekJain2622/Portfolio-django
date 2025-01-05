@@ -1,0 +1,46 @@
+{%extends 'base.html' %}
+{% block title %}Service{% endblock %}
+{% load static %}
+{% block hh %}
+<header id="header" class="header">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="text-container">
+                  <h1 class="h1-large">Service's</h1>
+                 
+              </div> <!-- end of text-container -->
+          </div> <!-- end of col -->
+      </div> <!-- end of row -->
+  </div> <!-- end of container -->
+</header> <!-- end of header -->
+<!-- end of header -->
+{% endblock %}
+{% block content %}
+   <!-- Services -->
+   
+   <div id="services" class="basic-2 bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="h2-heading">Offered services</h2>
+                <p class="p-heading">It's the fastest, easiest way we have found to speak directly to your customers and solve all kinds of problems in your business</p>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+        <div class="row">
+        {% for obj in sers %}
+        
+            <div class="col-lg-6">
+                <div class="text-box">
+                   <h4>{{obj.name}}</h4>
+                    <p>{{obj.description}}</p>
+                </div> <!-- end of text-box -->
+            </div> <!-- end of col -->
+            {% endfor %}
+        </div> <!-- end of row -->
+        
+    </div> <!-- end of container -->
+</div> <!-- end of basic-2 -->
+<!-- end of services -->
+
+{% endblock content %}

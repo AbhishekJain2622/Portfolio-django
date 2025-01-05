@@ -1,0 +1,167 @@
+{%extends 'base.html' %}
+{% block title %}About{% endblock %}
+{% load static %}
+{%include 'includes/stylecss.html' %}
+{% block hh %}
+<header id="header" class="header">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="text-container">
+                  <h1 class="h1-large">About Me</h1>
+                 
+              </div> <!-- end of text-container -->
+          </div> <!-- end of col -->
+      </div> <!-- end of row -->
+  </div> <!-- end of container -->
+</header> <!-- end of header -->
+<!-- end of header -->
+{% endblock %}
+{% block content %}
+<!-- about section start -->
+
+{% for obj in objs %}
+<div class="about_section layout_padding bg-gray">
+  <div class="container">
+     <div class="row">
+        <div class="col-md-6">
+           <div class="about_taital_main">
+              <p class="about_taital">{{obj.name}}</p>
+              <br><br><br>
+              <p><b>{{obj.objective}}</b></p>
+              <p><b> Date Of Birth:-</b>{{obj.dob}}</p>
+              <p><b>Place:-</b>{{obj.place}}</p>
+              <p><b>Email:-</b>{{obj.email}}</p>
+              <p><b>Contact:-</b>{{obj.contact}}</p>
+           </div>
+        </div>
+        <div class="col-md-6">
+          <br><br>
+           <div class="about_img" ><img style="height: 500px; width: 500px;"  src="{{obj.img.url}}" alt=""></div>
+        </div>
+     </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+<p style="color:white;"> ........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................</p>
+<h1 style="text-decoration: underline coral; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: 5px; text-align: center;">Education Section</h1>
+{% for edu in edus %}
+<div class="container bg-dark">
+<div class="card" style="margin-left: 95px; margin-top: 25px; margin-right: 95px; padding: 35px;" >
+    <H2>{{edu.cls}}</H2>
+    <hr/>
+    <p style ="font-family: Arial, Helvetica, sans-serif;"> <b> Collage Name :-</b>{{edu.institiute}}</p>
+           
+    <p style ="font-family: Arial, Helvetica, sans-serif;"> <b> Graduction:-</b>{{edu.cls}}</p>
+    
+    <p style ="font-family: Arial, Helvetica, sans-serif;"><b> Course:-</b>{{edu.course}}</p>
+    
+    <p style ="font-family: Arial, Helvetica, sans-serif;"> <b>Place:-</b>{{edu.place}}</p>
+    
+  </div>
+  
+</div>
+{% endfor %}
+{% for edu in edu2 %}
+
+<div class="container bg-dark">
+
+  <div class="card" style="margin-left: 95px; margin-top: 25px; margin-right: 95px; padding: 35px;" >
+    <H2>{{edu.cls}}</H2>
+    <hr/>
+    <p style ="font-family: Arial, Helvetica, sans-serif;"> <b> School Name :-/b>{{edu.institiute}}</p>
+           
+    <p style ="font-family: Arial, Helvetica, sans-serif;"> <b> Senior Secondary:-</b>{{edu.cls}}</p>
+    
+    <p style ="font-family: Arial, Helvetica, sans-serif;"><b> Course:-</b>{{edu.course}}</p>
+    
+    <p style ="font-family: Arial, Helvetica, sans-serif;"> <b>Place:-</b>{{edu.place}}</p>
+    
+  </div>
+  
+</div>
+{% endfor %}
+<br>
+<br>
+
+<div class="container">
+  <h1 style="text-decoration: underline coral; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: 5px; text-align: center;">Hobbie's</h1>
+<br>
+        <div class="row">
+            
+            {% for hob in hobbs %}
+                <div class="col-md-3 col-sm-3 col-xs-12 no-padding">
+                    <div class="gallery-items">
+                        <a class="view img" href="{{hob.image.url}}">
+                            <img src="{{hob.image.url}}" alt="work image">
+
+                        </a><br>
+                        <div class="gallery-text">
+                            <h2>{{hob.name}}</h2>
+                        </div>
+                    </div>
+                </div>
+                
+            {% endfor %}
+        </div>
+
+</div>
+{% endblock content %}
+
+<!------<section class="about_section layout_padding">
+  
+  {% for obj in objs %}
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img_container">
+            <div class="img-box b1">
+              <img src="{{obj.img.url}}" alt="">
+            </div>
+           <div class="img-box b2">
+              <img src="" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+           
+            <h2>Hello,I AM:{{obj.name}}</h2>
+            
+            <p><b>Objective:</b> {{obj.objective}}</p>
+            <p><b> Date Of Birth:</b>{{obj.dob}}</p>
+            <p><b>Place:</b>{{obj.place}}</p>
+            <p><b>Email:</b>{{obj.email}}</p>
+            <p><b>Contact:</b>{{obj.contact}}</p>
+          
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+      <br><br><br>
+  {% for edu in edus %}
+  <div>
+    <div class="card">
+      
+      <hr/>
+      <p style ="font-family: Arial, Helvetica, sans-serif;"> <b> Collage Name :</b>{{edu.institiute}}</p>
+             
+      <p style ="font-family: Arial, Helvetica, sans-serif;"> <b> Graduction:</b>{{edu.cls}}</p>
+      
+      <p style ="font-family: Arial, Helvetica, sans-serif;"><b> Course:</b>{{edu.course}}</p>
+      
+      <p style ="font-family: Arial, Helvetica, sans-serif;"> <b>Place:</b>{{edu.place}}</p>
+      
+      <p>{{edu.timeStamp}}</p>
+    </div>
+  </div>
+  {% endfor %}
+  <br><br><br>
+</section><br><br>
+  
+
+
+
+ -->
